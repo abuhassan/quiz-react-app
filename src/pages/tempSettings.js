@@ -1,9 +1,7 @@
-import { Button, CircularProgress, Typography } from '@mui/material'
-import { Box } from '@mui/system'
-
+import { Box, Button, CircularProgress, Typography } from '@mui/material'
 import SelectField from '../components/SelectField'
 import TextFieldComp from '../components/TextFieldComp'
-import useAxios from '../hooks/useAxios'
+import useAxios from '../hooks/temp1'
 
 const Settings = () => {
   const { response, error, loading } = useAxios({ url: '/api_category.php' })
@@ -24,16 +22,6 @@ const Settings = () => {
     )
   }
 
-  const difficultyOptions = [
-    { id: 'easy', name: 'Easy' },
-    { id: 'medium', name: 'Medium' },
-    { id: 'hard', name: 'Hard' },
-  ]
-  const typeOptions = [
-    { id: 'multiple', name: 'Multiple Choice' },
-    { id: 'boolean', name: 'True/False' },
-  ]
-
   const handleSubmit = (e) => {
     e.preventDefault()
   }
@@ -41,8 +29,8 @@ const Settings = () => {
   return (
     <form onSubmit={handleSubmit}>
       <SelectField options={response.trivia_categories} label='Category' />
-      <SelectField options={difficultyOptions} label='Difficulty' />
-      <SelectField options={typeOptions} label='Type' />
+      <SelectField label='Difficulty' />
+      <SelectField label='Type' />
       <TextFieldComp />
       <Box mt={3} width='100%'>
         <Button fullWidth variant='contained' type='submit'>
