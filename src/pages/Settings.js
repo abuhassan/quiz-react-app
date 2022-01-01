@@ -1,5 +1,6 @@
 import { Button, CircularProgress, Typography } from '@mui/material'
 import { Box } from '@mui/system'
+import { useHistory } from 'react-router-dom'
 
 import SelectField from '../components/SelectField'
 import TextFieldComp from '../components/TextFieldComp'
@@ -7,6 +8,7 @@ import useAxios from '../hooks/useAxios'
 
 const Settings = () => {
   const { response, error, loading } = useAxios({ url: '/api_category.php' })
+  const history = useHistory()
 
   if (loading) {
     return (
@@ -36,6 +38,7 @@ const Settings = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    history.push('/questions')
   }
 
   return (
