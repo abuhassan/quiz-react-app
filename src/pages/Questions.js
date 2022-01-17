@@ -83,7 +83,7 @@ const Questions = () => {
       {options.map((data, id) => (
         <Box mt={2} key={id}>
           <Button onClick={handleClickAnswer} variant='contained'>
-            {data}
+            {decode(data)}
           </Button>
         </Box>
       ))}
